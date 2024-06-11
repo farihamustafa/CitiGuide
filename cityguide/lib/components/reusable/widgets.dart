@@ -11,7 +11,7 @@ textfield(
     decoration: InputDecoration(
         labelText: label,
         prefixIcon: Icon(icon),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
     validator: (value) {
       if (value!.isEmpty) {
         return "invalid " + label;
@@ -23,7 +23,7 @@ textfield(
 }
 
 materialbutton(
-    {required void Function() function,
+    {required Function() function,
     required String btnText,
     required Color btnColor}) {
   return MaterialButton(
@@ -35,11 +35,17 @@ materialbutton(
   );
 }
 
-textbutton({required String text}) {
+textbutton({required String text, required Function() function}) {
   return TextButton(
     child: Text(text),
     onPressed: () {
-      print('Pressed');
+      return function();
     },
+  );
+}
+
+sizedbox() {
+  return SizedBox(
+    height: 10,
   );
 }
