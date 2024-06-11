@@ -140,8 +140,7 @@ class _SignupState extends State<Signup> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text("Already have an account? "),
-                          textbutton(
-                              text: "Login", function: navigateToLogin),
+                          textbutton(text: "Login", function: navigateToLogin),
                         ],
                       ),
                     ],

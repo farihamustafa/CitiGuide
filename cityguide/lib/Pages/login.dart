@@ -2,6 +2,7 @@ import 'package:cityguide/Pages/home.dart';
 import 'package:cityguide/Pages/signup.dart';
 import 'package:cityguide/components/reusable/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -50,52 +51,53 @@ class _LoginState extends State<Login> {
         child: Container(
           height: 550,
           width: 350,
-          child: Form(
-              key: formkey,
-              child: Card(
-                elevation: 20,
-                child: Padding(
-                  padding: const EdgeInsets.all(50.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 100,
-                        width: 200,
-                        color: Colors.blue,
-                        child: Text("logo"),
-                      ),
-                      sizedbox(),
-                      textfield(
-                          controller: _emailcontroller,
-                          label: "email",
-                          icon: Icons.email,
-                          obs: false),
-                      sizedbox(),
-                      textfield(
-                          controller: _passwordcontroller,
-                          label: "password",
-                          icon: Icons.password,
-                          obs: true),
-                      sizedbox(),
-                      materialbutton(
-                          function: loginform,
-                          btnText: "login",
-                          btnColor: Colors.blue),
-                      sizedbox(),
-                      Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("Don't have an account yet"),
-                            textbutton(text: "Sign up", function: navigators)
-                          ],
-                        ),
-                      )
-                    ],
+          child: Card(
+              elevation: 20,
+              child: Column(children: [
+                Container(
+                  height: 250.0,
+                  width: 300.0,
+                  child:
+                      Image.asset('assets/images/logo.png', fit: BoxFit.cover),
+                ),
+                Form(
+                  key: formkey,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        textfield(
+                            controller: _emailcontroller,
+                            label: "email",
+                            icon: Icons.email,
+                            obs: false),
+                        sizedbox(),
+                        textfield(
+                            controller: _passwordcontroller,
+                            label: "password",
+                            icon: Icons.password,
+                            obs: true),
+                        sizedbox(),
+                        materialbutton(
+                            function: loginform,
+                            btnText: "login",
+                            btnColor: Colors.blue),
+                        sizedbox(),
+                        Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Don't have an account yet"),
+                              textbutton(text: "Sign up", function: navigators)
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-              )),
+              ])),
         ),
       ),
     );
