@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
 
 textfield(
-    {
-    required TextEditingController controller,
+    {required TextEditingController controller,
     required String label,
     required IconData icon,
     required bool obs,
-    Color iconColor = Colors.blue
-    }) {
+    Color iconColor = Colors.blue}) {
   return TextFormField(
     controller: controller,
     obscureText: obs,
     decoration: InputDecoration(
-      labelText: label,
-      prefixIcon: Icon(
-        icon,
-        color: iconColor,
-      ),
-      border: OutlineInputBorder(),
-    ), validator: (value) {
+        labelText: label,
+        prefixIcon: Icon(icon),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
+    validator: (value) {
       if (value!.isEmpty) {
         return "invalid " + label;
       } else {
