@@ -49,12 +49,13 @@ class _LoginState extends State<Login> {
     return Scaffold(
       body: Center(
         child: Container(
-          height: 550,
+          height: 570,
           width: 350,
           child: Card(
               elevation: 20,
               child: Column(children: [
                 Container(
+                  color: Colors.yellow,
                   height: 250.0,
                   width: 300.0,
                   child:
@@ -69,26 +70,27 @@ class _LoginState extends State<Login> {
                       children: [
                         textfield(
                             controller: _emailcontroller,
-                            label: "email",
+                            label: "Email",
                             icon: Icons.email,
                             obs: false),
                         sizedbox(),
                         textfield(
                             controller: _passwordcontroller,
-                            label: "password",
+                            label: "Password",
                             icon: Icons.password,
                             obs: true),
                         sizedbox(),
                         materialbutton(
                             function: loginform,
-                            btnText: "login",
+                            btnText: ":Login",
                             btnColor: Colors.blue),
                         sizedbox(),
                         Container(
+                                              
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text("Don't have an account yet"),
+                              Text("Don't have an account?"),
                               textbutton(text: "Sign up", function: navigators)
                             ],
                           ),
