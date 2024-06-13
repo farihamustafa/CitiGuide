@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Theme{
+class ColorTheme{
  static Color primaryColor = Colors.blue;
 
  static Color secondaryColor = Color.fromARGB(255, 129, 183, 226);

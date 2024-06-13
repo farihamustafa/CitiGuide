@@ -1,3 +1,4 @@
+import 'package:cityguide/Theme/color.dart';
 import 'package:cityguide/components/reusable/places_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -81,7 +82,7 @@ class HomePage extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
           elevation: 30,
-          selectedItemColor: const Color.fromARGB(255, 31, 162, 250),
+          selectedItemColor: ColorTheme.primaryColor,
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.place),

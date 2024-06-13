@@ -14,10 +14,10 @@ textfield(
         prefixIcon: Icon(icon),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
     validator: (value) {
-      if (value!.isEmpty) {
+      if (value!.isEmpty ) {
         return "invalid " + label;
       } else {
-        null;
+        return null;
       }
     },
   );
@@ -36,11 +36,11 @@ materialbutton(
   );
 }
 
-textbutton({required String text, required Function() function}) {
+textbutton({required String text, required void Function() function}) {
   return TextButton(
     child: Text(text),
     onPressed: () {
-      return function();
+      function();
     },
   );
 }
