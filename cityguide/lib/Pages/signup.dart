@@ -1,6 +1,5 @@
 import 'package:cityguide/Pages/homepage.dart';
 import 'package:flutter/material.dart';
-import 'package:cityguide/Pages/home.dart';
 import 'package:cityguide/Pages/login.dart';
 import 'package:cityguide/components/reusable/widgets.dart';
 
@@ -11,12 +10,12 @@ class Signup extends StatefulWidget {
   State<Signup> createState() => _SignupState();
 }
 
-class _SignupState extends State<Signup> { 
+class _SignupState extends State<Signup> {
   final TextEditingController _nameController = TextEditingController();
-  
+
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
- 
+
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   signupForm() {
@@ -44,8 +43,7 @@ class _SignupState extends State<Signup> {
   @override
   void dispose() {
     _nameController.dispose();
- 
-   
+
     _emailController.dispose();
 
     _passwordController.dispose();
@@ -59,7 +57,6 @@ class _SignupState extends State<Signup> {
         child: Container(
           height: 650,
           width: 350,
-         
           child: Form(
             key: formKey,
             child: Card(
@@ -69,13 +66,12 @@ class _SignupState extends State<Signup> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                     Container(
-                height: 250.0,
-                width: 300.0,
-                child:
-                    Image.asset('assets/images/logo.png', fit: BoxFit.cover),
-                                )
-                    ,
+                    Container(
+                      height: 250.0,
+                      width: 300.0,
+                      child: Image.asset('assets/images/logo.png',
+                          fit: BoxFit.cover),
+                    ),
                     SizedBox(height: 20),
                     textfield(
                         controller: _nameController,

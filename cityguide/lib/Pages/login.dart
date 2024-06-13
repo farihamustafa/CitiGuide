@@ -38,7 +38,6 @@ class _LoginState extends State<Login> {
 
   @override
   void dispose() {
-  
     _emailcontroller.dispose();
     _passwordcontroller.dispose();
     super.dispose();
@@ -55,7 +54,6 @@ class _LoginState extends State<Login> {
               elevation: 20,
               child: Column(children: [
                 Container(
-                  color: Colors.yellow,
                   height: 250.0,
                   width: 300.0,
                   child:
@@ -82,11 +80,10 @@ class _LoginState extends State<Login> {
                         sizedbox(),
                         materialbutton(
                             function: loginform,
-                            btnText: ":Login",
+                            btnText: "Login",
                             btnColor: Colors.blue),
                         sizedbox(),
                         Container(
-                                              
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
