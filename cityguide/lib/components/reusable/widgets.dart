@@ -66,7 +66,7 @@ CityCard({required String cityimg, required String cityname}) {
     child: Stack(
       children: [
         Opacity(
-          opacity: 0.7,
+          opacity: 0.9,
           child: ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(7)),
             child: Image(
@@ -75,13 +75,20 @@ CityCard({required String cityimg, required String cityname}) {
               image: NetworkImage(cityimg),
             ),
           ),
-        ),
+         ),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.start,
+        //   crossAxisAlignment: CrossAxisAlignment.end,
+        //   children: [
+        //     Text(cityname, style: TextStyle(fontSize: 20, color: Colors.white),)
+        //   ],
+        // )
         Positioned(
             bottom: 10,
-            left: 40,
+            left: 30,
             child: Text(
               cityname,
-              style: TextStyle(fontSize: 30, color: Colors.white),
+              style: TextStyle(fontSize: 24, color: Colors.white),
             ))
       ],
     ),
