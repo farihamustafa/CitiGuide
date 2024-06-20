@@ -1,5 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cityguide/Pages/login.dart';
 import 'package:cityguide/Theme/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
 
 textfield(
     {required TextEditingController controller,
@@ -30,10 +34,10 @@ materialbutton(
     required Color btnColor}) {
   return MaterialButton(
     onPressed: () {
-      return function();
+      function();
     },
-    child: Text(btnText),
     color: btnColor,
+    child: Text(btnText),
   );
 }
 
@@ -57,32 +61,53 @@ app_Bar() {
     title: const Text('City Guide'),
     surfaceTintColor: Colors.transparent,
     backgroundColor: Colors.transparent,
-    actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.logout))],
+    actions: [IconButton(onPressed: () {
+      Get.defaultDialog(
+        onConfirm : ()=>{
+            Get.snackbar("Logout","Logout successfully"),
+            Get.to(Login())
+        },
+        onCancel: () => {
+            Get.back()
+        },
+        title: "Logout",
+      content : Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.question_mark, size: 40,),
+          sizedbox(),
+          Text("Are you sure to logout!"),
+        ],
+      )     
+      );
+     
+      
+    }, icon: const Icon(Icons.logout))],
   );
 }
 
-CityCard({required String cityimg, required String cityname}) {
+CityCard({required  cityimg, required  cityname}) {
   return Card(
     elevation: 20,
     child: Stack(
       children: [
         Opacity(
-          opacity: 0.7,
+          opacity: 0.9,
           child: ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(7)),
-            child: Image(
-              height: 500,
-              fit: BoxFit.cover,
-              image: NetworkImage(cityimg),
+            child: CachedNetworkImage(imageUrl: cityimg,
+            height: 500,
+            fit: BoxFit.cover,
             ),
           ),
-        ),
+         ),
+        
         Positioned(
             bottom: 10,
-            left: 40,
+            left: 30,
             child: Text(
               cityname,
-              style: TextStyle(fontSize: 30, color: Colors.white),
+              style: TextStyle(fontSize: 24, color: Colors.white),
             ))
       ],
     ),

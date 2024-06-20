@@ -45,20 +45,47 @@ class CityScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 230, 244, 248),
       appBar: app_Bar(),
-      body: GestureDetector(
-        child: GridView.builder(
-          itemCount: cityList.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, crossAxisSpacing: 2, mainAxisSpacing: 2),
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: CityCard(
-                  cityimg: cityList[index].cimg,
-                  cityname: cityList[index].cname),
-            );
-          },
-        ),
+      body:Column(
+        children: [
+           Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: TextField(
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(vertical: 15.0),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                  // borderSide: BorderSide(width: 0.8),
+                ),
+                hintText: 'Search Cities and Places',
+                prefixIcon: const Icon(
+                  Icons.search,
+                  size: 30.0,
+                ),
+                suffixIcon: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.clear),
+                ),
+              ),
+            ),
+          ),
+           Expanded(
+             child: GestureDetector(
+                     child: GridView.builder(
+                       itemCount: cityList.length,
+                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, crossAxisSpacing: 2, mainAxisSpacing: 2),
+                       itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: CityCard(
+                    cityimg: cityList[index].cimg,
+                    cityname: cityList[index].cname),
+              );
+                       },
+                     ),
+                   ),
+           ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
           elevation: 30,
