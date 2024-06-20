@@ -1,6 +1,6 @@
 import 'package:cityguide/Theme/color.dart';
+import 'package:cityguide/components/reusable/appbar.dart';
 import 'package:cityguide/components/reusable/places_tile.dart';
-import 'package:cityguide/components/reusable/widgets.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {

@@ -1,8 +1,10 @@
 import 'package:cityguide/Pages/tourist_details.dart';
+import 'package:cityguide/components/reusable/materialbutton.dart';
+import 'package:cityguide/components/reusable/textbutton.dart';
+import 'package:cityguide/components/reusable/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:cityguide/Pages/homepage.dart';
 import 'package:cityguide/Pages/login.dart';
-import 'package:cityguide/components/reusable/widgets.dart';
 
 class Signup extends StatefulWidget {
   const Signup({Key? key}) : super(key: key);
@@ -78,7 +80,7 @@ class _SignupState extends State<Signup> {
                       ),
                     ),
                     SizedBox(height: 20),
-                    textfield(
+                    textField(
                       controller: _nameController,
                       label: "Name",
                       icon: Icons.person,
@@ -98,8 +100,7 @@ class _SignupState extends State<Signup> {
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Please enter your email";
-                        } else if (!RegExp(
-                                r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                        } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
                             .hasMatch(value)) {
                           return "Invalid email format";
                         }
@@ -140,7 +141,7 @@ class _SignupState extends State<Signup> {
                       },
                     ),
                     SizedBox(height: 20),
-                    materialbutton(
+                    materialButton(
                       function: _signupForm,
                       btnText: "Sign Up",
                       btnColor: Color.fromARGB(255, 12, 122, 247),
@@ -150,7 +151,7 @@ class _SignupState extends State<Signup> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("Already have an account? "),
-                        textbutton(
+                        textButton(
                           text: "Login",
                           function: _navigateToLogin,
                         ),

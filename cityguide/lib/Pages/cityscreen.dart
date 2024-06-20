@@ -1,6 +1,7 @@
-import 'package:cityguide/Pages/citiesmodel.dart';
 import 'package:cityguide/Theme/color.dart';
-import 'package:cityguide/components/reusable/widgets.dart';
+import 'package:cityguide/components/reusable/appbar.dart';
+import 'package:cityguide/components/reusable/citycard.dart';
+import 'package:cityguide/models/citymodel.dart';
 import 'package:flutter/material.dart';
 
 class CityScreen extends StatelessWidget {
@@ -45,9 +46,9 @@ class CityScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 230, 244, 248),
       appBar: app_Bar(),
-      body:Column(
+      body: Column(
         children: [
-           Padding(
+          Padding(
             padding: const EdgeInsets.all(20.0),
             child: TextField(
               decoration: InputDecoration(
@@ -68,23 +69,23 @@ class CityScreen extends StatelessWidget {
               ),
             ),
           ),
-           Expanded(
-             child: GestureDetector(
-                     child: GridView.builder(
-                       itemCount: cityList.length,
-                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, crossAxisSpacing: 2, mainAxisSpacing: 2),
-                       itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: CityCard(
-                    cityimg: cityList[index].cimg,
-                    cityname: cityList[index].cname),
-              );
-                       },
-                     ),
-                   ),
-           ),
+          Expanded(
+            child: GestureDetector(
+              child: GridView.builder(
+                itemCount: cityList.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, crossAxisSpacing: 2, mainAxisSpacing: 2),
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: CityCard(
+                        cityimg: cityList[index].cimg,
+                        cityname: cityList[index].cname),
+                  );
+                },
+              ),
+            ),
+          ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

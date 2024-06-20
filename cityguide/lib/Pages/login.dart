@@ -1,9 +1,11 @@
 import 'package:cityguide/Pages/cityscreen.dart';
-import 'package:cityguide/Pages/homepage.dart';
 import 'package:cityguide/Pages/signup.dart';
-import 'package:cityguide/components/reusable/widgets.dart';
+import 'package:cityguide/components/reusable/materialbutton.dart';
+import 'package:cityguide/components/reusable/sizedbox.dart';
+import 'package:cityguide/components/reusable/textbutton.dart';
+import 'package:cityguide/components/reusable/textfield.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -21,20 +23,12 @@ class _LoginState extends State<Login> {
     if (formkey.currentState!.validate()) {
       print(_emailcontroller.text);
       print(_passwordcontroller.text);
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => CityScreen(),
-          ));
+      Get.to(() => CityScreen());
     }
   }
 
   navigators() {
-    return Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => Signup(),
-        ));
+    Get.to(() => Signup());
   }
 
   @override
@@ -67,29 +61,29 @@ class _LoginState extends State<Login> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        textfield(
+                        textField(
                             controller: _emailcontroller,
                             label: "Email",
                             icon: Icons.email,
                             obs: false),
-                        sizedbox(),
-                        textfield(
+                        sizedBox(),
+                        textField(
                             controller: _passwordcontroller,
                             label: "Password",
                             icon: Icons.password,
                             obs: true),
-                        sizedbox(),
-                        materialbutton(
+                        sizedBox(),
+                        materialButton(
                             function: loginform,
                             btnText: "Login",
                             btnColor: Colors.blue),
-                        sizedbox(),
+                        sizedBox(),
                         Container(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text("Don't have an account?"),
-                              textbutton(text: "Sign up", function: navigators)
+                              textButton(text: "Sign up", function: navigators)
                             ],
                           ),
                         )
