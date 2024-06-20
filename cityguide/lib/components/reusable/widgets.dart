@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cityguide/Pages/login.dart';
 import 'package:cityguide/Theme/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 
 textfield(
@@ -32,10 +34,10 @@ materialbutton(
     required Color btnColor}) {
   return MaterialButton(
     onPressed: () {
-      return function();
+      function();
     },
-    child: Text(btnText),
     color: btnColor,
+    child: Text(btnText),
   );
 }
 
@@ -60,11 +62,23 @@ app_Bar() {
     surfaceTintColor: Colors.transparent,
     backgroundColor: Colors.transparent,
     actions: [IconButton(onPressed: () {
-      Get.defaultDialog(title: "Are you sure to logout?",             
-      
-
-
-
+      Get.defaultDialog(
+        onConfirm : ()=>{
+            Get.snackbar("Logout","Logout successfully"),
+            Get.to(Login())
+        },
+        onCancel: () => {
+            Get.back()
+        },
+        title: "Logout",
+      content : Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.question_mark, size: 40,),
+          sizedbox(),
+          Text("Are you sure to logout!"),
+        ],
+      )     
       );
      
       
