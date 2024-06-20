@@ -10,7 +10,7 @@ textfield(
     required String label,
     required IconData icon,
     required bool obs,
-    Color iconColor = Colors.blue}) {
+}) {
   return TextFormField(
     controller: controller,
     obscureText: obs,
@@ -31,17 +31,23 @@ textfield(
 materialbutton(
     {required Function() function,
     required String btnText,
-    required Color btnColor}) {
-  return MaterialButton(
-    onPressed: () {
-      function();
-    },
-    color: btnColor,
-    child: Text(btnText),
+    required Color btnColor,
+    double width =double.infinity
+}) {
+  return Container(
+    width: width,
+    child: MaterialButton(
+      onPressed: () {
+        function();
+      },
+      color: btnColor ,
+      child: Text(btnText,
+      style: TextStyle(color: Colors.white),),
+    ),
   );
 }
 
-textbutton({required String text, required void Function() function}) {
+textbutton({required String text, required void Function() function, required TextStyle style, required double width}) {
   return TextButton(
     child: Text(text),
     onPressed: () {
@@ -52,7 +58,7 @@ textbutton({required String text, required void Function() function}) {
 
 sizedbox() {
   return SizedBox(
-    height: 10,
+    height: 20,
   );
 }
 
