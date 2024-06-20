@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cityguide/Theme/color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 textfield(
     {required TextEditingController controller,
@@ -57,11 +59,20 @@ app_Bar() {
     title: const Text('City Guide'),
     surfaceTintColor: Colors.transparent,
     backgroundColor: Colors.transparent,
-    actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.logout))],
+    actions: [IconButton(onPressed: () {
+      Get.defaultDialog(title: "Are you sure to logout?",             
+      
+
+
+
+      );
+     
+      
+    }, icon: const Icon(Icons.logout))],
   );
 }
 
-CityCard({required String cityimg, required String cityname}) {
+CityCard({required  cityimg, required  cityname}) {
   return Card(
     child: Stack(
       children: [
@@ -69,20 +80,13 @@ CityCard({required String cityimg, required String cityname}) {
           opacity: 0.9,
           child: ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(7)),
-            child: Image(
-              height: 500,
-              fit: BoxFit.cover,
-              image: NetworkImage(cityimg),
+            child: CachedNetworkImage(imageUrl: cityimg,
+            height: 500,
+            fit: BoxFit.cover,
             ),
           ),
          ),
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.start,
-        //   crossAxisAlignment: CrossAxisAlignment.end,
-        //   children: [
-        //     Text(cityname, style: TextStyle(fontSize: 20, color: Colors.white),)
-        //   ],
-        // )
+        
         Positioned(
             bottom: 10,
             left: 30,
