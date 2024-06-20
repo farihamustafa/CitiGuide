@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
 
 class Review {
   final String reviewer;
@@ -173,7 +174,9 @@ class _TouristDetailsPageState extends State<TouristDetailsPage> {
                     ],
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.snackbar("h", "test");
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.cyan,
                       shape: RoundedRectangleBorder(

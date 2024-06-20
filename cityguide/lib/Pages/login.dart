@@ -1,6 +1,6 @@
-import 'package:cityguide/Pages/cityscreen.dart';
 import 'package:cityguide/Pages/homepage.dart';
 import 'package:cityguide/Pages/signup.dart';
+import 'package:cityguide/Pages/tourist_details.dart';
 import 'package:cityguide/components/reusable/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -24,7 +24,7 @@ class _LoginState extends State<Login> {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => CityScreen(),
+            builder: (context) => TouristDetailsPage(image: "https://images.pexels.com/photos/2845013/pexels-photo-2845013.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",),
           ));
     }
   }
