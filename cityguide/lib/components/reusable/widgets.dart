@@ -1,4 +1,4 @@
-import 'package:cityguide/Theme/color.dart';
+
 import 'package:flutter/material.dart';
 
 textfield(
@@ -30,10 +30,10 @@ materialbutton(
     required Color btnColor}) {
   return MaterialButton(
     onPressed: () {
-      return function();
+      function();
     },
-    child: Text(btnText),
     color: btnColor,
+    child: Text(btnText),
   );
 }
 
@@ -76,13 +76,7 @@ CityCard({required String cityimg, required String cityname}) {
             ),
           ),
          ),
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.start,
-        //   crossAxisAlignment: CrossAxisAlignment.end,
-        //   children: [
-        //     Text(cityname, style: TextStyle(fontSize: 20, color: Colors.white),)
-        //   ],
-        // )
+       
         Positioned(
             bottom: 10,
             left: 30,
