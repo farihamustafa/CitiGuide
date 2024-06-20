@@ -63,6 +63,7 @@ app_Bar() {
 
 CityCard({required String cityimg, required String cityname}) {
   return Card(
+    elevation: 20,
     child: Stack(
       children: [
         Opacity(
