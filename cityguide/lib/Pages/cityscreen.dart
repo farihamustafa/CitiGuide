@@ -1,8 +1,10 @@
+import 'package:cityguide/Pages/profile_page.dart';
 import 'package:cityguide/Theme/color.dart';
 import 'package:cityguide/components/reusable/appbar.dart';
 import 'package:cityguide/components/reusable/citycard.dart';
 import 'package:cityguide/models/citymodel.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CityScreen extends StatelessWidget {
   List cityList = [
@@ -89,16 +91,19 @@ class CityScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        onTap: (value) => Get.to(const ProfileSettingsPage()),
           elevation: 30,
           selectedItemColor: ColorTheme.primaryColor,
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.place),
               label: 'Places',
+              
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: 'Profile',
+            
             )
           ]),
     );
