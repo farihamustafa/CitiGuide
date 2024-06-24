@@ -1,2 +1,2 @@
 # CitiGuide
-//gradlew signingReport
+//gradlew signingReport 

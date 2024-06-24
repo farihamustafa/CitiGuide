@@ -1,5 +1,6 @@
 import 'package:cityguide/Pages/cityscreen.dart';
 import 'package:cityguide/Pages/login.dart';
+import 'package:cityguide/Pages/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Login(),
+      home: SplashScreen(),
     );
   }
 }
