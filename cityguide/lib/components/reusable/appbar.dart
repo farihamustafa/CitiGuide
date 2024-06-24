@@ -16,7 +16,7 @@ app_Bar() {
       IconButton(
           onPressed: () {
             // Get.defaultDialog(
-               
+
             //     title: "Alert!",
             //     content: Text("Do you want to Logout?"),
             //     actions: [
@@ -24,7 +24,7 @@ app_Bar() {
             //           function: () {
             //             Get.snackbar("Logout", "Logout successfully");
             //             Get.offAll(Login());
-                      
+
             //           },
             //           btnText: "yes",
             //           btnColor: ColorTheme.primaryColor),
@@ -45,7 +45,7 @@ app_Bar() {
                 content: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.question_mark,
                       size: 40,
                     ),
