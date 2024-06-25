@@ -10,9 +10,10 @@ textField(
     controller: controller,
     obscureText: obs,
     decoration: InputDecoration(
+      
         labelText: label,
         prefixIcon: Icon(icon),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(25))),
     validator: (value) {
       if (value!.isEmpty) {
         return "invalid $label";

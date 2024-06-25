@@ -45,53 +45,71 @@ class _LoginState extends State<Login> {
         child: Container(
           height: 570,
           width: 350,
-          child: Card(
-              elevation: 20,
-              child: Column(children: [
-                Container(
-                  height: 250.0,
-                  width: 300.0,
-                  child:
-                      Image.asset('assets/images/logo.png', fit: BoxFit.cover),
-                ),
-                Form(
-                  key: formkey,
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        textField(
-                            controller: _emailcontroller,
-                            label: "Email",
-                            icon: Icons.email,
-                            obs: false),
-                        sizedBox(),
-                        textField(
-                            controller: _passwordcontroller,
-                            label: "Password",
-                            icon: Icons.password,
-                            obs: true),
-                        sizedBox(),
-                        materialButton(
-                            function: loginform,
-                            btnText: "Login",
-                            btnColor: Colors.blue),
-                        sizedBox(),
-                        Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text("Don't have an account?"),
-                              textButton(text: "Sign up", function: navigators)
-                            ],
-                          ),
-                        )
-                      ],
+          child: Column(children: [
+            Container(
+              height: 200.0,
+              width: 250.0,
+              child: Image.asset('assets/images/logo.png', fit: BoxFit.cover),
+            ),
+           
+            // https://www.vectorstock.com/royalty-free-vector/amusement-park-landscape-silhouettes-background-vector-14866062
+            // https://www.vectorstock.com/royalty-free-vector/scenery-amusement-park-style-background-vector-14866113
+            sizedBox(),
+            Form(
+              key: formkey,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    textField(
+                        controller: _emailcontroller,
+                        label: "Email",
+                        icon: Icons.email,
+                        obs: false),
+                    sizedBox(),
+                    textField(
+                        controller: _passwordcontroller,
+                        label: "Password",
+                        icon: Icons.password,
+                        obs: true),
+                    sizedBox(),
+                    ElevatedButton(
+                      onPressed: loginform,
+                      style: ElevatedButton.styleFrom(
+                        elevation: 5,
+                        backgroundColor: Colors.blue,
+                        shape: const StadiumBorder(),
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 20,
+                          horizontal: 100.0,
+                        ),
+                      ),
+                      child: const Text('Login',style: TextStyle(
+                        
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      ),),
                     ),
-                  ),
+                    // materialButton(
+                    //     function: loginform,
+                    //     btnText: "Login",
+                    //     btnColor: Colors.blue),
+                    sizedBox(),
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Don't have an account?"),
+                          textButton(text: "Sign up", function: navigators)
+                        ],
+                      ),
+                    )
+                  ],
                 ),
-              ])),
+              ),
+            ),
+          ]),
         ),
       ),
     );

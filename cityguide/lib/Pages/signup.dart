@@ -7,7 +7,7 @@ import 'package:cityguide/Pages/homepage.dart';
 import 'package:cityguide/Pages/login.dart';
 
 class Signup extends StatefulWidget {
-  const Signup({Key? key}) : super(key: key);
+  const Signup({super.key});
 
   @override
   State<Signup> createState() => _SignupState();
@@ -140,7 +140,7 @@ class _SignupState extends State<Signup> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     materialButton(
                       function: _signupForm,
                       btnText: "Sign Up",

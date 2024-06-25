@@ -10,9 +10,14 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: AnimatedSplashScreen(
           duration: 3000,
-          splash: Image.asset(
-            'assets/images/logo.png',
-            fit: BoxFit.contain,
+          splash: Container(
+            
+            height: 6000,
+            width: 130,
+            child: Image.asset(
+              'assets/images/logo.png',
+              fit: BoxFit.cover,
+            ),
           ),
           splashTransition: SplashTransition.fadeTransition,
           nextScreen: const Login()),
