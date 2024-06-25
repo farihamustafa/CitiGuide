@@ -68,13 +68,14 @@ class _SignupState extends State<Signup> {
                   child: Image.asset('assets/images/logo.png', fit: BoxFit.cover),
                 ),
                 SizedBox(height: 20),
-                                TextFormField(
+                
+                TextFormField(
                   controller: _nameController,
                   decoration: InputDecoration(
                     labelText: "Name",
                     prefixIcon: Icon(Icons.person, color: Colors.blue),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                   validator: (value) {
@@ -84,66 +85,85 @@ class _SignupState extends State<Signup> {
                     return null;
                   },
                 ),
+                SizedBox(height: 20),
 
-                SizedBox(height: 20),
                 TextFormField(
-                  controller: _emailController,
-                  decoration: InputDecoration(
-                    labelText: "Email",
-                    prefixIcon: Icon(Icons.email, color: Colors.blue),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Please enter your email";
-                    } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
-                      return "Invalid email format";
-                    }
-                    return null;
-                  },
-                ),
-                SizedBox(height: 20),
-                TextFormField(
-                  controller: _passwordController,
-                  obscureText: _obscurePassword,
-                  decoration: InputDecoration(
-                    labelText: "Password",
-                    prefixIcon: Icon(Icons.password, color: Colors.blue),
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                        _obscurePassword ? Icons.visibility : Icons.visibility_off,
-                        color: Colors.blue,
+                        controller: _emailController,
+                        decoration: InputDecoration(
+                          labelText: "Email",
+                          prefixIcon: Icon(Icons.person, color: Colors.blue),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Please enter your email";
+                          } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+                            return "Invalid email format";
+                          }
+                          return null;
+                        },
                       ),
-                      onPressed: () {
-                        setState(() {
-                          _obscurePassword = !_obscurePassword;
-                        });
-                      },
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Please enter your password";
-                    } else if (value.length < 6) {
-                      return "Password must be at least 6 characters long";
-                    }
-                    return null;
-                  },
-                ),
                 SizedBox(height: 20),
-                materialbutton(
-                  function: _signupForm,
-                  btnText: "Sign up",
-                  width: 200.0,
-                  btnColor: Colors.blue,
+                 TextFormField(
+                        controller: _passwordController,
+                        obscureText: _obscurePassword,
+                        decoration: InputDecoration(
+                          labelText: "Password",
+                          prefixIcon: Icon(Icons.lock, color: Colors.blue),
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _obscurePassword ? Icons.visibility : Icons.visibility_off,
+                              color: Colors.blue,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _obscurePassword = !_obscurePassword;
+                              });
+                            },
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Please enter your password";
+                          } else if (value.length < 6) {
+                            return "Password must be at least 6 characters long";
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 15),
+                                 Container(
+                        width: double.infinity,
+                        height: 40,
+                        child: MaterialButton(
+                          onPressed: _signupForm,
+                          color: Colors.blue,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          
+                          child: Text(
+                            "SIGN UP",
+                            style: TextStyle(fontSize: 15
+                              ,color: Colors.white),
+                          ),
+                        ),
+                      ),
+                 SizedBox(
+                  height: 10,
                 ),
-                SizedBox(height: 20),
-                Row(
+
+                 Divider(
+                  color: Colors.black,
+                  height: 30,
+                ),
+            
+                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Already have an account? "),

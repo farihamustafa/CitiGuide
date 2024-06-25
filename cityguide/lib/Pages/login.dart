@@ -71,9 +71,9 @@ class _LoginState extends State<Login> {
                         controller: _emailController,
                         decoration: InputDecoration(
                           labelText: "Email",
-                          prefixIcon: Icon(Icons.email, color: Colors.blue),
+                          prefixIcon: Icon(Icons.person, color: Colors.blue),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(10),
                           ),
                         ),
                         validator: (value) {
@@ -85,13 +85,13 @@ class _LoginState extends State<Login> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 15),
                       TextFormField(
                         controller: _passwordController,
                         obscureText: _obscurePassword,
                         decoration: InputDecoration(
                           labelText: "Password",
-                          prefixIcon: Icon(Icons.password, color: Colors.blue),
+                          prefixIcon: Icon(Icons.lock, color: Colors.blue),
                           suffixIcon: IconButton(
                             icon: Icon(
                               _obscurePassword ? Icons.visibility : Icons.visibility_off,
@@ -104,7 +104,7 @@ class _LoginState extends State<Login> {
                             },
                           ),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(10),
                           ),
                         ),
                         validator: (value) {
@@ -116,14 +116,52 @@ class _LoginState extends State<Login> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 20),
-                      materialbutton(
-                        function: loginform,
-                        btnText: "Login",
-                        btnColor: Colors.blue,
-                        width: 200.0,
+                      SizedBox(height: 15),
+                         Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        print('Forgotted Password!');
+                      },
+                      child: Text(
+                        'Forgot Password?',
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 14, 145, 233).withOpacity(0.8),
+                          fontSize: 10.0,
+                        ),
                       ),
-                      sizedbox(),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+             
+                      Container(
+                        width: double.infinity,
+                        height: 40,
+                        child: MaterialButton(
+                          onPressed: loginform,
+                          color: Colors.blue,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          
+                          child: Text(
+                            "LOGIN",
+                            style: TextStyle(fontSize: 15
+                              ,color: Colors.white),
+                          ),
+                        ),
+                      ),
+                 SizedBox(
+                  height: 10,
+                ),
+             Divider(
+                  color: Colors.black,
+                  height: 30,
+                ),
                       Container(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -132,7 +170,8 @@ class _LoginState extends State<Login> {
                             textbutton(
                               text: "Sign up",
                               function: navigators,
-                              style: TextStyle(color: Colors.white), // Set text color to white
+                              style: TextStyle(fontWeight: FontWeight.bold,
+                                color: Colors.white), // Set text color to white
                               width: 50.0,
                             ),
                           ],
@@ -149,3 +188,4 @@ class _LoginState extends State<Login> {
     );
   }
 }
+
