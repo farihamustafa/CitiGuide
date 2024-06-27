@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 230, 244, 248),
-      appBar: app_Bar(),
+      appBar: app_Bar("city Name"),
       body: Column(
         children: [
           Padding(

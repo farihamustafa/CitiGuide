@@ -1,5 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:cityguide/Pages/login.dart';
+import 'package:cityguide/Pages/loginpage.dart';
+import 'package:cityguide/Pages/welcomescreen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -20,7 +21,7 @@ class SplashScreen extends StatelessWidget {
             ),
           ),
           splashTransition: SplashTransition.fadeTransition,
-          nextScreen: const Login()),
+          nextScreen: const WelcomScreen()),
     );
   }
 }

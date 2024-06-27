@@ -1,17 +1,17 @@
 import 'package:cityguide/Pages/cityscreen.dart';
-import 'package:cityguide/Pages/login.dart';
+import 'package:cityguide/Pages/loginpage.dart';
 import 'package:cityguide/Theme/color.dart';
 import 'package:cityguide/components/reusable/materialbutton.dart';
 import 'package:cityguide/components/reusable/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-app_Bar() {
+app_Bar(String text) {
   return AppBar(
     automaticallyImplyLeading: false,
-    title: const Text('City Guide'),
+    title: Text(text,style: TextStyle(color: Colors.white),),
     surfaceTintColor: Colors.transparent,
-    backgroundColor: Colors.transparent,
+    backgroundColor: Color.fromARGB(255, 17, 10, 41),
     actions: [
       IconButton(
           onPressed: () {
@@ -38,7 +38,7 @@ app_Bar() {
             Get.defaultDialog(
                 onConfirm: () => {
                       Get.snackbar("Logout", "Logout successfully"),
-                      Get.to(Login())
+                      Get.to(LoginPage())
                     },
                 onCancel: () => {Get.back()},
                 title: "Logout",
@@ -54,7 +54,7 @@ app_Bar() {
                   ],
                 ));
           },
-          icon: const Icon(Icons.logout))
+          icon: const Icon(Icons.logout,color: Colors.white,))
     ],
   );
 }

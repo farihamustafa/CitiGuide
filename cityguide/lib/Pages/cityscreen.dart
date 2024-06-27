@@ -1,4 +1,5 @@
 import 'package:cityguide/Pages/profile_page.dart';
+import 'package:cityguide/Pages/tourist_details.dart';
 import 'package:cityguide/Theme/color.dart';
 import 'package:cityguide/components/reusable/appbar.dart';
 import 'package:cityguide/components/reusable/citycard.dart';
@@ -46,49 +47,65 @@ class CityScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 230, 244, 248),
-      appBar: app_Bar(),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: TextField(
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(vertical: 15.0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                  // borderSide: BorderSide(width: 0.8),
-                ),
-                hintText: 'Search Cities and Places',
-                prefixIcon: const Icon(
-                  Icons.search,
-                  size: 30.0,
-                ),
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.clear),
+
+    
+      appBar: app_Bar('Cities'),
+      body: 
+      Container(
+        decoration: BoxDecoration(gradient:LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: <Color>[
+         Color.fromARGB(255, 5, 6, 58),
+           Color.fromARGB(255, 5, 6, 39),
+       ]), ),
+        child: Column(
+          
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(vertical: 15.0),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                    // borderSide: BorderSide(width: 0.8),
+                  ),
+                  hintText: 'Search Cities and Places',
+                  fillColor: Colors.white,
+                  filled: true,         
+                  prefixIcon: const Icon(
+                    Icons.search,
+                    size: 30.0,
+                    color: Colors.black,
+                  ),
+                  suffixIcon: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.clear,color: Colors.black,),
+                  ),
                 ),
               ),
             ),
-          ),
-          Expanded(
-            child: GestureDetector(
-              child: GridView.builder(
-                itemCount: cityList.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, crossAxisSpacing: 2, mainAxisSpacing: 2),
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: CityCard(
-                        cityimg: cityList[index].cimg,
-                        cityname: cityList[index].cname),
-                  );
-                },
+            Expanded(
+              child: GestureDetector(
+                onTap: () => Get.to(TouristDetailsPage(image: "https://images.pexels.com/photos/2845013/pexels-photo-2845013.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")),
+                child: GridView.builder(
+                  itemCount: cityList.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2, crossAxisSpacing: 2, mainAxisSpacing: 2),
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: CityCard(
+                          cityimg: cityList[index].cimg,
+                          cityname: cityList[index].cname),
+                    );
+                  },
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) => Get.to(const ProfileSettingsPage()),

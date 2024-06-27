@@ -6,9 +6,10 @@ CityCard({required cityimg, required cityname}) {
     elevation: 20,
     child: Stack(
       children: [
-        Opacity(
-          opacity: 0.9,
-          child: ClipRRect(
+        // Opacity(
+          // opacity: 0.9,
+          // child:
+           ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(7)),
             child: CachedNetworkImage(
               imageUrl: cityimg,
@@ -16,7 +17,7 @@ CityCard({required cityimg, required cityname}) {
               fit: BoxFit.cover,
             ),
           ),
-        ),
+        // ),
         Positioned(
             bottom: 10,
             left: 30,
